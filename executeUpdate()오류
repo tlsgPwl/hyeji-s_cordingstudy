@@ -1,0 +1,42 @@
+	public void memberDelete(String irum) {
+		sc=new Scanner(System.in);
+		int check=0;
+		try {
+			conn=ConnectionProvider.getConnection();
+			sql="SELECT * FROM X1 WHERE name=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, irum);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				do {
+					int sunser=rs.getInt("sunser");
+					String name=rs.getString("name");
+					int age=rs.getInt("age");
+					String position=rs.getString("position");
+					System.out.println(sunser+name+age+position);
+				}while(rs.next());
+			}else {
+					System.out.println("해당데이터가존재하지않습니다.");
+				}
+				if(pstmt!=null) pstmt.close();
+				System.out.println("정말 삭제할까요? (yes):");
+				String value=sc.next();
+			if(value.equalsIgnoreCase(value)) {
+				String sqlDel=null;
+				
+				sqlDel="DELETE FROM X1 WHERE name=? ";
+				pstmt=conn.prepareStatement(sqlDel);
+				pstmt.setString(1, irum);
+				check=pstmt.executeUpdate();
+			if(check > 0) System.out.println("삭제 되었습니다.");
+			conn.commit();
+		}else {
+			System.out.println("취소되었습니다.");
+		}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
+		}
+	}
