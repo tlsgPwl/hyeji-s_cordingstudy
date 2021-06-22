@@ -1,0 +1,203 @@
+package proimsi;
+
+import java.util.Scanner;
+
+public class Menu {
+
+			public void menu() {
+
+			Scanner sc=new Scanner(System.in);
+			System.out.println("****선택하세요*****");
+			System.out.println("1. 회원 2. 강사 3. 관리자");
+			int choice = sc.nextInt();
+			if(choice==1) {
+				System.out.println("1.회원로그인 2.회원신청");
+				loginmember();
+			}else if(choice==2) {
+				System.out.println("강사로그인하세요");
+				instructorlogin();
+			}else if(choice==3) {
+				System.out.println("관리자 로그인하세요");
+				System.out.println("1인사관리자로그인 2.시설관리자로그인");
+				int suntek=sc.nextInt();
+				if(suntek==1) {
+					System.out.println("인사관리자 계정 로그인하세요");
+				}else if(suntek==2) {
+					System.out.println("시설관리자 계정 로그인하세요");
+				}else {
+					System.out.println("1~2사이로 입력하세요");
+				}
+			}else {
+				System.out.println("1~3사이로 입력하세요");
+				}
+			}
+		
+
+	public void loginmember() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("아이디");
+		System.out.println("비밀번호 입력하세요");
+		System.out.println("1.신청 2.회원의 개인정보/강좌정보/강사정보조회 3.종료");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("신청입니다.");
+			memberapplication();
+		}else if(choice==2) {
+			System.out.println("개인정보/강좌정보/강사정보조회를 조회합니다.");
+			memberinquire();
+		}else {
+			System.out.println("1~4까지의 숫자를 입력하세욘");
+		}
+	}
+	public void memberapplication() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("신청입니다.");
+		System.out.println("1. 강의 신청 2.강좌신청");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("강의신청을 보냅니다. 신청할 강의를 입력하세요.");
+		}else if(choice==2) {
+			System.out.println("사물함신청을 보냅니다.");
+		}
+	}
+	
+	
+	public void memberinquire() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.개인정보 조회 2.수강강좌조회 3.담당강사정보조회");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("개인정보를 조회합니다.");
+			memberapplication();
+		}else if(choice==2) {
+			System.out.println("강좌정보를 조회합니다.");
+		}else if(choice==3) {
+			System.out.println("담당 강사정보를 조회합니다.");
+		}else {
+			System.out.println("1~3까지의 숫자를 입력하세욘");
+		}
+	}
+
+	
+	public void instructorlogin() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("아이디");
+		System.out.println("비밀번호 입력하세요");
+		System.out.println("1.담당회원조회 2.담당강좌 조회");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("담당회원을조회합니다.");
+			instructormemberinquire();
+		}else if(choice==2) {
+			System.out.println("담당강좌목록을 조회합니다.");
+			instructorclassinquire();
+		}else {
+			System.out.println("1~2까지의 숫자를 입력하세욘");
+		}
+	}
+	public void instructormemberinquire() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.담당회원 전체조회 2.이름으로 조회");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("담당회원을 전체출력합니다..");
+
+		}else if(choice==2) {
+			System.out.println("조회할 회원 이름을 입력하세요.");
+
+		}else {
+			System.out.println("1~2까지의 숫자를 입력하세욘");
+		}
+	}
+	public void instructorclassinquire() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("1.담당강좌 전체조회 2.강좌별조회");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("담당강좌를 전체출력합니다..");
+
+		}else if(choice==2) {
+			System.out.println("조회할 강좌 이름을 입력하세요.");
+
+		}else {
+			System.out.println("1~2까지의 숫자를 입력하세욘");
+		}
+	}
+	
+	public void loginhumanresource() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("아이디");
+		System.out.println("비밀번호 입력하세요");
+		System.out.println("1.강사등록 2.강의등록 3.회원정보확인 4.강사정보확인 5.강좌정보 확인 6.회원의 가입신청 확인 7.강사삭제 8.회원삭제");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("신청입니다.");
+		}else if(choice==2) {
+			System.out.println("강의를 등록합니다.");
+		}else if(choice==3) {
+			System.out.println("회원정보를확인합니다.");
+		}else if(choice==4) {
+			System.out.println("강사정보를확인합니다.");
+		}else if(choice==5) {
+			System.out.println("강좌정보를 확인합니다.");
+		}else if(choice==6) {
+			System.out.println("회원가입신청을 확인합니다..");
+		}else if(choice==7) {
+			System.out.println("강사를 삭제합니다..");
+		}else if(choice==8) {
+			System.out.println("회원을 삭제합니다..");
+		}
+		else {
+			System.out.println("1~9까지의 숫자를 입력하세요");
+		}
+	}
+	
+	public void loginhr() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("아이디");
+		System.out.println("비밀번호 입력하세요");
+		System.out.println("1.강사등록 2.강의등록 3.회원정보확인 4.강사정보확인 5.강좌정보 확인 6.회원의 가입신청 확인 7.강사삭제 8.회원삭제");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("신청입니다.");
+		}else if(choice==2) {
+			System.out.println("강의를 등록합니다.");
+		}else if(choice==3) {
+			System.out.println("회원정보를확인합니다.");
+		}else if(choice==4) {
+			System.out.println("강사정보를확인합니다.");
+		}else if(choice==5) {
+			System.out.println("강좌정보를 확인합니다.");
+		}else if(choice==6) {
+			System.out.println("회원가입신청을 확인합니다..");
+		}else if(choice==7) {
+			System.out.println("강사를 삭제합니다..");
+		}else if(choice==8) {
+			System.out.println("회원을 삭제합니다..");
+		}
+		else {
+			System.out.println("1~9까지의 숫자를 입력하세요");
+		}
+	}
+	public void logfac() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("아이디");
+		System.out.println("비밀번호 입력하세요");
+		System.out.println("1.강의장 2.사물함 3.비품");
+		int choice=sc.nextInt();
+		if(choice==1) {
+			System.out.println("강의장정보를 확인합니다..");
+		}else if(choice==2) {
+			System.out.println("1.들어온 사물함사용 신청을 확인합니다. 2.사물함 사용정보를 확인합니다.");
+		}else if(choice==3) {
+			System.out.println("1.비품을 신규로 등록합니다. 2 재고현황을 확인합니다. 3 재고의 수량을 변경합니다. 4 비품을 폐기합니다..");
+
+		}else {
+			System.out.println("1~3까지의 숫자를 입력하세요");
+		}
+	}
+	
+}
+
+
+	
